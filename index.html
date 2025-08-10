@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quel manager êtes-vous ? - Jeu sérieux pour développer vos pratiques managériales</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(102, 126, 234, 0.25);
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .pulse-slow {
+            animation: pulse 3s infinite;
+        }
+        
+        .nav-fixed {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+        }
+        
+        .scroll-smooth {
+            scroll-behavior: smooth;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+    </style>
+    <meta name="description" content="Test">
+</head>
+<body class="scroll-smooth">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="text-2xl font-bold gradient-text">
+                    Quel manager êtes-vous ?
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#manager" class="text-gray-700 hover:text-purple-600 transition-colors font-medium">Je suis Manager</a>
+                    <a href="#rh-formateur" class="text-gray-700 hover:text-purple-600 transition-colors font-medium">Je suis RH/Formateur·rice</a>
+                    <a href="#dirigeant" class="text-gray-700 hover:text-purple-600 transition-colors font-medium">Je suis Dirigeant/DRH</a>
+                </div>
+                <button class="md:hidden text-gray-700">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 gradient-bg opacity-10"></div>
+        <div class="absolute inset-0">
+            <div class="absolute top-20 left-10 w-20 h-20 bg-purple-300 rounded-full opacity-20 floating"></div>
+            <div class="absolute top-40 right-20 w-32 h-32 bg-blue-300 rounded-full opacity-15 floating" style="animation-delay: -1s;"></div>
+            <div class="absolute bottom-40 left-1/4 w-24 h-24 bg-indigo-300 rounded-full opacity-25 floating" style="animation-delay: -2s;"></div>
+        </div>
+        
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <div class="max-w-5xl mx-auto">
+                <h1 class="text-5xl md:text-7xl font-bold mb-8 leading-tight">
+                    <span class="gradient-text">Clarifiez votre posture,</span><br>
+                    <span class="text-gray-800">désamorcez les tensions,</span><br>
+                    <span class="gradient-text">créez de la cohésion.</span>
+                </h1>
+                
+                <p class="text-xl md:text-2xl text-gray-600 mb-12 max-w-4xl mx-auto leading-relaxed">
+                    Un jeu sérieux, pas un test : un déclencheur de prise de conscience pour des pratiques managériales plus justes.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
+                    <button class="btn-primary text-white px-10 py-4 rounded-full text-lg font-semibold shadow-lg pulse-slow">
+                        <i class="fas fa-bell mr-3"></i>
+                        Être informé·e du lancement
+                    </button>
+                    <a href="#decouvrir" class="text-purple-600 hover:text-purple-800 font-semibold text-lg flex items-center transition-colors">
+                        <span class="mr-2">Découvrir le jeu</span>
+                        <i class="fas fa-arrow-down"></i>
+                    </a>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                    <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
+                        <i class="fas fa-users text-3xl text-purple-600 mb-4"></i>
+                        <h3 class="font-semibold text-lg mb-2">Jusqu'à 8 personnes</h3>
+                        <p class="text-gray-600">Groupes restreints pour des échanges riches</p>
+                    </div>
+                    <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
+                        <i class="fas fa-clock text-3xl text-purple-600 mb-4"></i>
+                        <h3 class="font-semibold text-lg mb-2">½ journée à 1 journée</h3>
+                        <p class="text-gray-600">Format adaptable selon vos besoins</p>
+                    </div>
+                    <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
+                        <i class="fas fa-map-marker-alt text-3xl text-purple-600 mb-4"></i>
+                        <h3 class="font-semibold text-lg mb-2">France entière</h3>
+                        <p class="text-gray-600">Intervention sur tout le territoire</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- À qui s'adresse ce jeu -->
+    <section id="decouvrir" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    <span class="gradient-text">À qui s'adresse ce jeu ?</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Que vous soyez manager, professionnel RH ou dirigeant, ce jeu s'adapte à votre réalité et vos enjeux spécifiques.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
+                <div id="manager" class="card-hover bg-white rounded-3xl p-8 shadow-lg fade-in">
+                    <div class="w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-user-tie text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">Managers</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Vous managez une équipe et souhaitez développer votre posture managériale. Vous cherchez à mieux comprendre vos réactions et celles de vos collaborateurs dans les situations tendues.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                            <span class="text-gray-700">Clarifier votre style de management</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                            <span class="text-gray-700">Désamorcer les conflits efficacement</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                            <span class="text-gray-700">Renforcer la cohésion d'équipe</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div id="rh-formateur" class="card-hover bg-white rounded-3xl p-8 shadow-lg fade-in">
+                    <div class="w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-chalkboard-teacher text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">RH &amp; Formateur·rice</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Vous accompagnez les managers dans leur développement. Vous recherchez des outils concrets et engageants pour vos formations et accompagnements managériaux.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                            <span class="text-gray-700">Outil pédagogique innovant</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                            <span class="text-gray-700">Favorise les prises de conscience</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                            <span class="text-gray-700">Génère des échanges riches</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div id="dirigeant" class="card-hover bg-white rounded-3xl p-8 shadow-lg fade-in">
+                    <div class="w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-crown text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">Dirigeant &amp; DRH</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Vous pilotez les enjeux RH de votre organisation. Vous souhaitez développer une culture managériale forte et harmoniser les pratiques de vos équipes dirigeantes.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                            <span class="text-gray-700">Harmoniser les pratiques managériales</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                            <span class="text-gray-700">Développer la culture d'entreprise</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                            <span class="text-gray-700">Améliorer le climat social</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vos défis -->
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    <span class="gradient-text">Vos défis au quotidien</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Nous comprenons les situations complexes auxquelles vous faites face en tant que manager.
+                </p>
+            </div>
+            
+            <div class="max-w-6xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                    <div class="bg-red-50 border-l-4 border-red-400 p-8 rounded-r-2xl fade-in">
+                        <div class="flex items-start">
+                            <i class="fas fa-exclamation-triangle text-red-500 text-2xl mr-4 mt-1"></i>
+                            <div>
+                                <h3 class="text-xl font-bold text-red-800 mb-3">Tensions récurrentes</h3>
+                                <p class="text-red-700">
+                                    Conflits entre collaborateurs, résistance au changement, communication difficile... 
+                                    Les tensions s'accumulent et impactent la performance de l'équipe.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-orange-50 border-l-4 border-orange-400 p-8 rounded-r-2xl fade-in">
+                        <div class="flex items-start">
+                            <i class="fas fa-question-circle text-orange-500 text-2xl mr-4 mt-1"></i>
+                            <div>
+                                <h3 class="text-xl font-bold text-orange-800 mb-3">Posture managériale floue</h3>
+                                <p class="text-orange-700">
+                                    Vous hésitez entre différentes approches, vous vous demandez si vous êtes trop directif 
+                                    ou pas assez ferme selon les situations.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-8 rounded-r-2xl fade-in">
+                        <div class="flex items-start">
+                            <i class="fas fa-users-slash text-yellow-600 text-2xl mr-4 mt-1"></i>
+                            <div>
+                                <h3 class="text-xl font-bold text-yellow-800 mb-3">Manque de cohésion</h3>
+                                <p class="text-yellow-700">
+                                    L'équipe fonctionne en silos, les collaborateurs ne se comprennent pas, 
+                                    l'esprit d'équipe fait défaut.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-8 rounded-r-2xl fade-in">
+                        <div class="flex items-start">
+                            <i class="fas fa-clock text-blue-500 text-2xl mr-4 mt-1"></i>
+                            <div>
+                                <h3 class="text-xl font-bold text-blue-800 mb-3">Manque de temps pour le management</h3>
+                                <p class="text-blue-700">
+                                    Entre les urgences opérationnelles et les réunions, difficile de prendre du recul 
+                                    et d'accompagner vraiment vos équipes.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-green-50 border border-green-200 rounded-2xl p-8 max-w-4xl mx-auto">
+                        <i class="fas fa-lightbulb text-green-600 text-3xl mb-4"></i>
+                        <h3 class="text-2xl font-bold text-green-800 mb-4">
+                            Et si vous pouviez transformer ces défis en opportunités ?
+                        </h3>
+                        <p class="text-green-700 text-lg">
+                            Notre jeu vous donne les clés pour comprendre ces situations, 
+                            développer votre posture managériale et créer un environnement de travail plus serein et productif.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deux situations concrètes -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    <span class="gradient-text">Deux situations que vous connaissez</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Découvrez comment le jeu vous aide à naviguer dans des situations managériales complexes.
+                </p>
+            </div>
+            
+            <div class="max-w-6xl mx-auto space-y-16">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="fade-in">
+                        <img src="https://placehold.co/600x400" alt="Situation de conflit en équipe" class="rounded-2xl shadow-lg w-full">
+                    </div>
+                    <div class="fade-in">
+                        <div class="bg-red-100 text-red-800 px-4 py-2 rounded-full inline-block mb-4 font-semibold">
+                            Situation 1
+                        </div>
+                        <h3 class="text-3xl font-bold mb-6 text-gray-800">
+                            Le conflit qui paralyse l'équipe
+                        </h3>
+                        <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                            Deux collaborateurs ne se supportent plus. L'ambiance se dégrade, les autres membres de l'équipe 
+                            prennent parti, et la productivité chute. Vous ne savez plus comment intervenir sans aggraver la situation.
+                        </p>
+                        <div class="bg-white p-6 rounded-xl border-l-4 border-purple-400">
+                            <h4 class="font-bold text-purple-800 mb-3">
+                                <i class="fas fa-magic mr-2"></i>
+                                Ce que le jeu vous apporte :
+                            </h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex items-start">
+                                    <i class="fas fa-arrow-right text-purple-500 mr-3 mt-1 text-sm"></i>
+                                    <span>Identifier votre style naturel de gestion de conflit</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-arrow-right text-purple-500 mr-3 mt-1 text-sm"></i>
+                                    <span>Comprendre les motivations de chaque partie</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-arrow-right text-purple-500 mr-3 mt-1 text-sm"></i>
+                                    <span>Développer des stratégies de médiation efficaces</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="fade-in lg:order-2">
+                        <img src="https://placehold.co/600x400" alt="Résistance au changement" class="rounded-2xl shadow-lg w-full">
+                    </div>
+                    <div class="fade-in lg:order-1">
+                        <div class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full inline-block mb-4 font-semibold">
+                            Situation 2
+                        </div>
+                        <h3 class="text-3xl font-bold mb-6 text-gray-800">
+                            La résistance au changement
+                        </h3>
+                        <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                            Vous devez implémenter de nouveaux processus, mais votre équipe résiste. Certains collaborateurs 
+                            sont ouvertement opposés, d'autres font de la résistance passive. Comment les embarquer ?
+                        </p>
+                        <div class="bg-white p-6 rounded-xl border-l-4 border-purple-400">
+                            <h4 class="font-bold text-purple-800 mb-3">
+                                <i class="fas fa-magic mr-2"></i>
+                                Ce que le jeu vous apporte :
+                            </h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex items-start">
+                                    <i class="fas fa-arrow-right text-purple-500 mr-3 mt-1 text-sm"></i>
+                                    <span>Adapter votre communication selon les profils</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-arrow-right text-purple-500 mr-3 mt-1 text-sm"></i>
+                                    <span>Transformer la résistance en adhésion</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-arrow-right text-purple-500 mr-3 mt-1 text-sm"></i>
+                                    <span>Créer une dynamique collective positive</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-white rounded-2xl p-8 shadow-lg max-w-4xl mx-auto">
+                        <img src="https://placehold.co/800x300" alt="Cartes du jeu managérial" class="rounded-xl mb-6 w-full">
+                        <h3 class="text-2xl font-bold mb-4 gradient-text">
+                            Des cartes pour révéler votre potentiel managérial
+                        </h3>
+                        <p class="text-gray-600 text-lg">
+                            Chaque carte du jeu représente une facette de votre personnalité managériale. 
+                            Ensemble, elles dessinent votre profil unique et vous donnent les clés pour progresser.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pourquoi ce jeu fonctionne -->
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    <span class="gradient-text">Pourquoi ce jeu fonctionne-t-il ?</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Une approche innovante basée sur l'expérience et la prise de conscience plutôt que sur la théorie.
+                </p>
+            </div>
+            
+            <div class="max-w-6xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+                    <div class="text-center fade-in">
+                        <div class="w-20 h-20 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-brain text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Prise de conscience</h3>
+                        <p class="text-gray-600">
+                            Le jeu révèle vos automatismes et vous fait prendre conscience de vos réactions naturelles.
+                        </p>
+                    </div>
+                    
+                    <div class="text-center fade-in">
+                        <div class="w-20 h-20 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-users text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Intelligence collective</h3>
+                        <p class="text-gray-600">
+                            Les échanges avec les autres participants enrichissent votre réflexion et ouvrent de nouvelles perspectives.
+                        </p>
+                    </div>
+                    
+                    <div class="text-center fade-in">
+                        <div class="w-20 h-20 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-gamepad text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Apprentissage ludique</h3>
+                        <p class="text-gray-600">
+                            L'aspect jeu rend l'expérience engageante et mémorable, loin des formations traditionnelles.
+                        </p>
+                    </div>
+                    
+                    <div class="text-center fade-in">
+                        <div class="w-20 h-20 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-tools text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Outils concrets</h3>
+                        <p class="text-gray-600">
+                            Vous repartez avec des outils pratiques immédiatement applicables dans votre quotidien.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-r from-purple-50 to-blue-50 rounded-3xl p-12">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <h3 class="text-3xl font-bold mb-6 gradient-text">
+                                Une méthode éprouvée
+                            </h3>
+                            <div class="space-y-6">
+                                <div class="flex items-start">
+                                    <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center mr-4 mt-1">
+                                        <i class="fas fa-check text-white text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-lg mb-2">Basé sur la recherche</h4>
+                                        <p class="text-gray-600">
+                                            Fondé sur les dernières recherches en psychologie du travail et management.
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center mr-4 mt-1">
+                                        <i class="fas fa-check text-white text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-lg mb-2">Testé en entreprise</h4>
+                                        <p class="text-gray-600">
+                                            Validé par des centaines de managers dans différents secteurs d'activité.
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center mr-4 mt-1">
+                                        <i class="fas fa-check text-white text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-lg mb-2">Résultats mesurables</h4>
+                                        <p class="text-gray-600">
+                                            Impact positif démontré sur le climat social et la performance des équipes.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center">
+                            <div class="bg-white rounded-2xl p-8 shadow-lg">
+                                <div class="text-4xl font-bold gradient-text mb-2">95%</div>
+                                <p class="text-gray-600 mb-4">des participants recommandent le jeu</p>
+                                <div class="flex justify-center space-x-1 mb-6">
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                </div>
+                                <p class="text-sm text-gray-500 italic">
+                                    "Une expérience transformante qui change vraiment la façon de manager."
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comment se déroule l'atelier -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    <span class="gradient-text">Comment se déroule l'atelier ?</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Un parcours en 3 étapes pour une transformation durable de vos pratiques managériales.
+                </p>
+            </div>
+            
+            <div class="max-w-6xl mx-auto mb-16">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="relative">
+                        <div class="bg-white rounded-3xl p-8 shadow-lg card-hover fade-in">
+                            <div class="absolute -top-4 left-8">
+                                <div class="w-12 h-12 gradient-bg rounded-full flex items-center justify-center text-white font-bold text-xl">
+                                    1
+                                </div>
+                            </div>
+                            <div class="pt-8">
+                                <i class="fas fa-play-circle text-4xl text-purple-600 mb-6"></i>
+                                <h3 class="text-2xl font-bold mb-4">Découverte</h3>
+                                <p class="text-gray-600 mb-6">
+                                    Présentation du jeu et mise en situation. Vous découvrez les cartes et commencez à identifier 
+                                    votre profil managérial naturel.
+                                </p>
+                                <div class="text-sm text-purple-600 font-semibold">
+                                    <i class="fas fa-clock mr-2"></i>
+                                    30-45 minutes
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="relative">
+                        <div class="bg-white rounded-3xl p-8 shadow-lg card-hover fade-in">
+                            <div class="absolute -top-4 left-8">
+                                <div class="w-12 h-12 gradient-bg rounded-full flex items-center justify-center text-white font-bold text-xl">
+                                    2
+                                </div>
+                            </div>
+                            <div class="pt-8">
+                                <i class="fas fa-lightbulb text-4xl text-purple-600 mb-6"></i>
+                                <h3 class="text-2xl font-bold mb-4">Exploration</h3>
+                                <p class="text-gray-600 mb-6">
+                                    Jeu en équipes sur des situations concrètes. Échanges et débriefing pour comprendre 
+                                    les différentes approches managériales.
+                                </p>
+                                <div class="text-sm text-purple-600 font-semibold">
+                                    <i class="fas fa-clock mr-2"></i>
+                                    2-4 heures
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="relative">
+                        <div class="bg-white rounded-3xl p-8 shadow-lg card-hover fade-in">
+                            <div class="absolute -top-4 left-8">
+                                <div class="w-12 h-12 gradient-bg rounded-full flex items-center justify-center text-white font-bold text-xl">
+                                    3
+                                </div>
+                            </div>
+                            <div class="pt-8">
+                                <i class="fas fa-rocket text-4xl text-purple-600 mb-6"></i>
+                                <h3 class="text-2xl font-bold mb-4">Plan d'action</h3>
+                                <p class="text-gray-600 mb-6">
+                                    Construction de votre plan d'action personnalisé. Définition d'objectifs concrets 
+                                    pour améliorer vos pratiques managériales.
+                                </p>
+                                <div class="text-sm text-purple-600 font-semibold">
+                                    <i class="fas fa-clock mr-2"></i>
+                                    1-2 heures
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Informations pratiques -->
+            <div class="bg-white rounded-3xl p-12 shadow-lg">
+                <h3 class="text-3xl font-bold text-center mb-12 gradient-text">
+                    Informations pratiques
+                </h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-map-marker-alt text-blue-600 text-2xl"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Format</h4>
+                        <p class="text-gray-600">Atelier en présentiel uniquement</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-users text-green-600 text-2xl"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Groupe</h4>
+                        <p class="text-gray-600">2 à 8 personnes maximum</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-clock text-purple-600 text-2xl"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Durée</h4>
+                        <p class="text-gray-600">½ journée à 1 journée selon vos besoins</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-plane text-orange-600 text-2xl"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Zone</h4>
+                        <p class="text-gray-600">France entière</p>
+                    </div>
+                </div>
+                
+                <div class="mt-12 p-6 bg-yellow-50 border border-yellow-200 rounded-2xl">
+                    <div class="flex items-start">
+                        <i class="fas fa-info-circle text-yellow-600 text-xl mr-4 mt-1"></i>
+                        <div>
+                            <h4 class="font-bold text-yellow-800 mb-2">Frais de déplacement</h4>
+                            <p class="text-yellow-700">
+                                Les frais de déplacement et d'hébergement sont refacturés au réel. 
+                                Un forfait peut être proposé sur devis selon la localisation.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ce que vous emportez -->
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    <span class="gradient-text">Ce que vous emportez</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Des outils concrets et un nouveau regard sur votre pratique managériale.
+                </p>
+            </div>
+            
+            <div class="max-w-6xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
+                    <div class="fade-in">
+                        <h3 class="text-3xl font-bold mb-8 gradient-text">
+                            Vos livrables personnalisés
+                        </h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start bg-white p-6 rounded-xl shadow-lg">
+                                <div class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center mr-4">
+                                    <i class="fas fa-user-circle text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg mb-2">Votre profil managérial</h4>
+                                    <p class="text-gray-600">
+                                        Une synthèse détaillée de votre style de management avec vos forces et axes de progrès.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start bg-white p-6 rounded-xl shadow-lg">
+                                <div class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center mr-4">
+                                    <i class="fas fa-route text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg mb-2">Plan d'action personnalisé</h4>
+                                    <p class="text-gray-600">
+                                        Des objectifs concrets et un plan de développement adapté à votre contexte.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start bg-white p-6 rounded-xl shadow-lg">
+                                <div class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center mr-4">
+                                    <i class="fas fa-toolbox text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg mb-2">Boîte à outils</h4>
+                                    <p class="text-gray-600">
+                                        Techniques et méthodes pratiques pour gérer les situations difficiles au quotidien.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="fade-in">
+                        <div class="bg-gradient-to-br from-purple-50 to-blue-50 rounded-3xl p-8">
+                            <h4 class="text-2xl font-bold mb-6 text-center gradient-text">
+                                Suivi post-atelier
+                            </h4>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-white rounded-xl p-4 flex items-center">
+                                    <i class="fas fa-calendar-check text-green-500 text-xl mr-4"></i>
+                                    <span class="font-medium">Séance de suivi à 3 mois (optionnelle)</span>
+                                </div>
+                                
+                                <div class="bg-white rounded-xl p-4 flex items-center">
+                                    <i class="fas fa-envelope text-blue-500 text-xl mr-4"></i>
+                                    <span class="font-medium">Ressources complémentaires par email</span>
+                                </div>
+                                
+                                <div class="bg-white rounded-xl p-4 flex items-center">
+                                    <i class="fas fa-phone text-purple-500 text-xl mr-4"></i>
+                                    <span class="font-medium">Support téléphonique pendant 6 mois</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-white rounded-3xl p-12 shadow-lg border-2 border-purple-100">
+                        <i class="fas fa-trophy text-5xl text-yellow-500 mb-6"></i>
+                        <h3 class="text-3xl font-bold mb-6 gradient-text">
+                            Résultats attendus
+                        </h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                            <div>
+                                <div class="text-3xl font-bold text-green-600 mb-2">+40%</div>
+                                <p class="text-gray-600">d'amélioration du climat social</p>
+                            </div>
+                            <div>
+                                <div class="text-3xl font-bold text-blue-600 mb-2">-60%</div>
+                                <p class="text-gray-600">de conflits non résolus</p>
+                            </div>
+                            <div>
+                                <div class="text-3xl font-bold text-purple-600 mb-2">+35%</div>
+                                <p class="text-gray-600">d'engagement des équipes</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    <span class="gradient-text">Questions fréquentes</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Toutes les réponses à vos questions sur le jeu "Quel manager êtes-vous ?".
+                </p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="space-y-6">
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden fade-in">
+                        <div class="faq-item p-8 cursor-pointer" onclick="toggleFAQ(this)">
+                            <div class="flex items-center justify-between">
+                                <h3 class="text-xl font-bold text-gray-800">
+                                    En quoi ce jeu diffère-t-il d'un test de personnalité classique ?
+                                </h3>
+                                <i class="fas fa-chevron-down text-purple-600 transition-transform"></i>
+                            </div>
+                            <div class="faq-content mt-6 hidden">
+                                <p class="text-gray-600 leading-relaxed">
+                                    Contrairement aux tests de personnalité qui vous classent dans des catégories figées, 
+                                    notre jeu est un déclencheur de prise de conscience. Il ne s'agit pas de vous étiqueter, 
+                                    mais de vous faire découvrir vos réactions naturelles et de vous donner les clés pour 
+                                    les adapter selon les situations. L'approche est interactive, collaborative et centrée 
+                                    sur l'action concrète.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden fade-in">
+                        <div class="faq-item p-8 cursor-pointer" onclick="toggleFAQ(this)">
+                            <div class="flex items-center justify-between">
+                                <h3 class="text-xl font-bold text-gray-800">
+                                    Quelle est la durée idéale pour un atelier ?
+                                </h3>
+                                <i class="fas fa-chevron-down text-purple-600 transition-transform"></i>
+                            </div>
+                            <div class="faq-content mt-6 hidden">
+                                <p class="text-gray-600 leading-relaxed">
+                                    La durée dépend de vos objectifs. Une demi-journée (3-4h) permet une première approche 
+                                    et la découverte de votre profil. Une journée complète (7h) offre plus de temps pour 
+                                    l'exploration, les échanges et la construction d'un plan d'action détaillé. Nous vous 
+                                    conseillons en fonction de votre contexte et de vos attentes.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden fade-in">
+                        <div class="faq-item p-8 cursor-pointer" onclick="toggleFAQ(this)">
+                            <div class="flex items-center justify-between">
+                                <h3 class="text-xl font-bold text-gray-800">
+                                    Peut-on organiser l'atelier pour une équipe complète ?
+                                </h3>
+                                <i class="fas fa-chevron-down text-purple-600 transition-transform"></i>
+                            </div>
+                            <div class="faq-content mt-6 hidden">
+                                <p class="text-gray-600 leading-relaxed">
+                                    Absolument ! C'est même l'une des configurations les plus enrichissantes. Quand une équipe 
+                                    participe ensemble, cela crée une compréhension mutuelle des styles de management et de 
+                                    fonctionnement de chacun. Cela améliore la communication et la cohésion. Nous adaptons 
+                                    l'animation pour favoriser ces dynamiques collectives tout en respectant la confidentialité 
+                                    des profils individuels.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden fade-in">
+                        <div class="faq-item p-8 cursor-pointer" onclick="toggleFAQ(this)">
+                            <div class="flex items-center justify-between">
+                                <h3 class="text-xl font-bold text-gray-800">
+                                    Quels sont les prérequis pour participer ?
+                                </h3>
+                                <i class="fas fa-chevron-down text-purple-600 transition-transform"></i>
+                            </div>
+                            <div class="faq-content mt-6 hidden">
+                                <p class="text-gray-600 leading-relaxed">
+                                    Aucun prérequis particulier n'est nécessaire. Le jeu s'adresse à tous les managers, 
+                                    quel que soit leur niveau d'expérience ou leur secteur d'activité. Que vous soyez 
+                                    nouveau manager ou expérimenté, vous trouverez de la valeur dans cette approche. 
+                                    La seule condition est d'avoir envie de questionner ses pratiques et d'évoluer.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden fade-in">
+                        <div class="faq-item p-8 cursor-pointer" onclick="toggleFAQ(this)">
+                            <div class="flex items-center justify-between">
+                                <h3 class="text-xl font-bold text-gray-800">
+                                    Comment mesurer l'impact de l'atelier sur le long terme ?
+                                </h3>
+                                <i class="fas fa-chevron-down text-purple-600 transition-transform"></i>
+                            </div>
+                            <div class="faq-content mt-6 hidden">
+                                <p class="text-gray-600 leading-relaxed">
+                                    Nous proposons plusieurs outils de suivi : questionnaire de satisfaction à chaud, 
+                                    évaluation des acquis à 3 mois, et possibilité d'une séance de suivi pour faire le 
+                                    point sur la mise en application. Nous pouvons également vous accompagner dans la 
+                                    définition d'indicateurs spécifiques à votre contexte (climat social, turnover, 
+                                    engagement des équipes, etc.).
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulaire -->
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                        <span class="gradient-text">Être informé·e du lancement</span>
+                    </h2>
+                    <p class="text-xl text-gray-600">
+                        Laissez-nous vos coordonnées pour être parmi les premiers à découvrir ce jeu révolutionnaire.
+                    </p>
+                </div>
+                
+                <div class="bg-white rounded-3xl shadow-2xl p-12">
+                    <form class="space-y-8">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-3">
+                                    Prénom *
+                                </label>
+                                <input type="text" required="" class="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:outline-none transition-colors text-lg">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-3">
+                                    Email professionnel *
+                                </label>
+                                <input type="email" required="" class="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:outline-none transition-colors text-lg">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-3">
+                                Je suis... *
+                            </label>
+                            <select required="" class="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:outline-none transition-colors text-lg">
+                                <option value="">Sélectionnez votre profil</option>
+                                <option value="manager">Manager</option>
+                                <option value="rh-formateur">RH / Formateur·rice</option>
+                                <option value="dirigeant-drh">Dirigeant / DRH</option>
+                                <option value="autre">Autre</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-3">
+                                Entreprise
+                            </label>
+                            <input type="text" class="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:outline-none transition-colors text-lg">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-3">
+                                Taille de votre équipe (si applicable)
+                            </label>
+                            <select class="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:outline-none transition-colors text-lg">
+                                <option value="">Sélectionnez</option>
+                                <option value="1-5">1 à 5 personnes</option>
+                                <option value="6-15">6 à 15 personnes</option>
+                                <option value="16-50">16 à 50 personnes</option>
+                                <option value="50+">Plus de 50 personnes</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-3">
+                                Vos attentes concernant cet atelier (optionnel)
+                            </label>
+                            <textarea rows="4" class="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:outline-none transition-colors text-lg" placeholder="Décrivez brièvement vos défis managériaux actuels ou ce que vous aimeriez développer..."></textarea>
+                        </div>
+                        
+                        <div class="bg-gray-50 rounded-xl p-6">
+                            <div class="flex items-start">
+                                <input type="checkbox" required="" class="mt-1 mr-4 w-5 h-5 text-purple-600">
+                                <div class="text-sm text-gray-600">
+                                    <p class="mb-2">
+                                        <strong>Consentement RGPD :</strong> En soumettant ce formulaire, vous acceptez que vos données personnelles soient collectées et traitées par Konnexion dans le but de vous informer sur le lancement de l'atelier "Quel manager êtes-vous ?".
+                                    </p>
+                                    <p>
+                                        Vos données ne seront pas transmises à des tiers et vous pourrez à tout moment demander leur suppression en nous contactant à contact@konnexion-nc.fr.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center">
+                            <button type="submit" class="btn-primary text-white px-12 py-4 rounded-full text-lg font-semibold shadow-lg">
+                                <i class="fas fa-paper-plane mr-3"></i>
+                                Être informé·e du lancement
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 gradient-text">
+                        Quel manager êtes-vous ?
+                    </h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        Un jeu sérieux pour développer vos pratiques managériales et créer des équipes plus soudées et performantes.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Contact</h4>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-purple-400 mr-3"></i>
+                            <a href="mailto:contact@konnexion-nc.fr" class="text-gray-300 hover:text-white transition-colors">
+                                contact@konnexion-nc.fr
+                            </a>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-purple-400 mr-3"></i>
+                            <span class="text-gray-300">France entière</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Informations légales</h4>
+                    <div class="space-y-2">
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors block">
+                            Mentions légales
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors block">
+                            Politique de confidentialité
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors block">
+                            Conditions générales
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center">
+                <p class="text-gray-400">
+                    © 2025 Konnexion. Tous droits réservés. | 
+                    <span class="text-sm">
+                        Vos données personnelles sont traitées conformément au RGPD. 
+                        Pour toute question, contactez-nous à contact@konnexion-nc.fr
+                    </span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('nav-fixed');
+            } else {
+                navbar.classList.remove('nav-fixed');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // FAQ toggle function
+        function toggleFAQ(element) {
+            const content = element.querySelector('.faq-content');
+            const icon = element.querySelector('i');
+            
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                content.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simple form validation
+            const requiredFields = this.querySelectorAll('[required]');
+            let isValid = true;
+            
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    isValid = false;
+                    field.style.borderColor = '#ef4444';
+                } else {
+                    field.style.borderColor = '#d1d5db';
+                }
+            });
+            
+            if (isValid) {
+                // Simulate form submission
+                const button = this.querySelector('button[type="submit"]');
+                const originalText = button.innerHTML;
+                
+                button.innerHTML = '<i class="fas fa-spinner fa-spin mr-3"></i>Envoi en cours...';
+                button.disabled = true;
+                
+                setTimeout(() => {
+                    button.innerHTML = '<i class="fas fa-check mr-3"></i>Merci ! Nous vous recontacterons bientôt.';
+                    button.style.background = 'linear-gradient(135deg, #10b981 0%, #059669 100%)';
+                    
+                    setTimeout(() => {
+                        button.innerHTML = originalText;
+                        button.disabled = false;
+                        button.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                        this.reset();
+                    }, 3000);
+                }, 2000);
+            }
+        });
+
+        // Add some interactive hover effects
+        document.querySelectorAll('.card-hover').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
